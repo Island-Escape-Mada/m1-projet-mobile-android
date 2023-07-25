@@ -9,4 +9,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <!-- Menu related strings -->
+    <string name="about_madagascar">About Madagascar</string>
+    <string name="natural_reserve">Natural wonder</string>
+    <string name="historical_place">Historical places</string>
+    <string name="coast">All along the coast</string>
+    <string name="hospitality">Where to stay ?</string>
+    <string name="news">Tourism news</string>
+    <string name="title_activity_menu">MenuActivity</string>
 </resources>
