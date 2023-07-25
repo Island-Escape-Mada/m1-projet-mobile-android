@@ -12,6 +12,21 @@
         android:theme="@style/Theme.IslandEscapeMada"
         tools:targetApi="31">
         <activity
+            android:name=".views.LatestNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.HospitalityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.HistoricalPlacesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.CoastActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.NaturalWonderActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.AboutMadaActivity"
             android:exported="false" />
         <activity

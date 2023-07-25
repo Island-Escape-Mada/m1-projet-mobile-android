@@ -44,31 +44,37 @@ public class MenuActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             // open related menu fragment
+            Intent intent = null;
             switch (view.getId()) {
                 case R.id.btn_about_madagascar:
                     // Action for button1 click
-                    Intent intent = new Intent(MenuActivity.this, AboutMadaActivity.class);
+                    intent = new Intent(MenuActivity.this, AboutMadaActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.btn_natural_wonder:
                     // Action for button1 click
-                    Toast.makeText(MenuActivity.this, "btn_natural_wonder", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuActivity.this, NaturalWonderActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.btn_coast:
                     // Action for button1 click
-                    Toast.makeText(MenuActivity.this, "btn_coast", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuActivity.this, CoastActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.btn_historical_place:
                     // Action for button1 click
-                    Toast.makeText(MenuActivity.this, "btn_historical_place", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuActivity.this, HistoricalPlacesActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.btn_hospitality:
                     // Action for button1 click
-                    Toast.makeText(MenuActivity.this, "btn_hospitality", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuActivity.this, HospitalityActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.btn_news:
                     // Action for button1 click
-                    Toast.makeText(MenuActivity.this, "btn_news", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuActivity.this, LatestNewsActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
