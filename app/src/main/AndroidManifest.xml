@@ -40,6 +40,10 @@
         <activity
             android:name=".views.AuthActivity"
             android:theme="@style/Theme.IslandEscapeMada"
+            android:exported="true" />
+        <activity
+            android:name=".views.SplashActivity"
+            android:theme="@style/Theme.IslandEscapeMada"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
