@@ -1,16 +1,16 @@
 package com.example.island_escape_mada.views;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.example.island_escape_mada.R;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -22,6 +22,8 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void init(){
+        collapsingToolbarBehaviour();
+
         Button about = findViewById(R.id.btn_about_madagascar);
         Button natural = findViewById(R.id.btn_natural_wonder);
         Button coast = findViewById(R.id.btn_coast);
@@ -35,6 +37,17 @@ public class MenuActivity extends AppCompatActivity {
         place.setOnClickListener(onMenuButtonClick);
         hospitality.setOnClickListener(onMenuButtonClick);
         news.setOnClickListener(onMenuButtonClick);
+    }
+
+    /**
+     * Manage collapsing toolbar behaviour
+     */
+    public void collapsingToolbarBehaviour(){
+        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.menu_collapsing_toolbar);
+        collapsingToolbarLayout.setTitle(getString(R.string.app_name));
+
+        // collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor);
+        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.expandingToolbarLayoutTitleColor);
     }
 
     /**
