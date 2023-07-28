@@ -1,0 +1,7 @@
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <!-- Add certificates here if required for HTTP connections -->
+        </trust-anchors>
+    </base-config>
+</network-security-config>
