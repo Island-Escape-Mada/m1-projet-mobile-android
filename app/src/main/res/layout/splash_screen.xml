@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashBackground"
+    android:gravity="center">
+
+    <!-- Replace "@drawable/logo" with the actual logo image resource -->
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="356dp"
+        android:layout_height="464dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo" />
+
+</RelativeLayout>
