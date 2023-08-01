@@ -36,7 +36,12 @@
             android:name=".views.MenuActivity"
             android:exported="true"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.IslandEscapeMada"/>
+            android:theme="@style/Theme.IslandEscapeMada">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".views.AuthActivity"
             android:theme="@style/Theme.IslandEscapeMada"
@@ -45,10 +50,7 @@
             android:name=".views.SplashActivity"
             android:theme="@style/Theme.IslandEscapeMada"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 
