@@ -20,7 +20,7 @@ public class CoastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            ListFragment listFragment = new ListFragment();
+            ListFragment listFragment = new ListFragment("beach");
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_container_view, listFragment);

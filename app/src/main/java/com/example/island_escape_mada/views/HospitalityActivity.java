@@ -19,7 +19,7 @@ public class HospitalityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            ListFragment listFragment = new ListFragment();
+            ListFragment listFragment = new ListFragment("hospitality");
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_container_view, listFragment);
