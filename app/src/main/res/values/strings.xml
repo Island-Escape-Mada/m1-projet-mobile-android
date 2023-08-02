@@ -22,7 +22,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="api_url">http://10.0.2.2:3000/api</string>
+    <string name="api_url">http://192.168.43.52:4000/</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

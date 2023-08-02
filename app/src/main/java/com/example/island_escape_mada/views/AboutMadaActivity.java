@@ -34,7 +34,8 @@ public class AboutMadaActivity extends AppCompatActivity implements FetchHtmlTas
     @Override
     public void onHtmlFetched(String htmlContent) {
         if (htmlContent != null){
-            webView.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
+            String baseUrl = "file:///android_asset/";
+            webView.loadDataWithBaseURL(baseUrl, htmlContent, "text/html", "UTF-8", null);
             // hide the progress bar
             progressBar.setVisibility(View.GONE);
         }
