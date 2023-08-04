@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.island_escape_mada.R;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class MenuActivity extends AppCompatActivity {
         Button place = findViewById(R.id.btn_historical_place);
         Button hospitality = findViewById(R.id.btn_hospitality);
         Button news = findViewById(R.id.btn_news);
+        FloatingActionButton fabSettings = findViewById(R.id.fab_settings);
 
         about.setOnClickListener(onMenuButtonClick);
         natural.setOnClickListener(onMenuButtonClick);
@@ -37,6 +39,7 @@ public class MenuActivity extends AppCompatActivity {
         place.setOnClickListener(onMenuButtonClick);
         hospitality.setOnClickListener(onMenuButtonClick);
         news.setOnClickListener(onMenuButtonClick);
+        fabSettings.setOnClickListener(onMenuButtonClick);
     }
 
     /**
@@ -87,6 +90,10 @@ public class MenuActivity extends AppCompatActivity {
                 case R.id.btn_news:
                     // Action for button1 click
                     intent = new Intent(MenuActivity.this, LatestNewsActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.fab_settings:
+                    intent = new Intent(MenuActivity.this, SettingActivity.class);
                     startActivity(intent);
                     break;
             }
