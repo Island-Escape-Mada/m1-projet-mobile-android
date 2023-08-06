@@ -8,6 +8,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.island_escape_mada.R;
+import com.example.island_escape_mada.factory.TrustAllSSLSocketFactory;
 import com.example.island_escape_mada.helpers.SharedPreferenceHelper;
 import com.example.island_escape_mada.models.User;
 
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -147,7 +150,8 @@ public class SettingActivity extends AppCompatActivity {
                     }
                 });
 
-        // Add the request to the RequestQueue (Volley's network queue)
+        //by pass ssl certificate check
+        HttpsURLConnection.setDefaultSSLSocketFactory(TrustAllSSLSocketFactory.create());
         Volley.newRequestQueue(this).add(jsonObjectRequest);
     }
 

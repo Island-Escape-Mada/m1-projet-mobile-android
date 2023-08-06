@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.example.island_escape_mada.R;
+import com.example.island_escape_mada.factory.TrustAllSSLSocketFactory;
 import com.example.island_escape_mada.helpers.SharedPreferenceHelper;
 import com.example.island_escape_mada.models.User;
 import com.example.island_escape_mada.views.MenuActivity;
@@ -28,6 +29,8 @@ import com.example.island_escape_mada.views.MenuActivity;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class RegistrationFragment extends Fragment {
 
@@ -132,7 +135,8 @@ public class RegistrationFragment extends Fragment {
                     }
                 };
 
-        // Add the request to the RequestQueue (Volley's network queue)
+        //by pass ssl certificate check
+        HttpsURLConnection.setDefaultSSLSocketFactory(TrustAllSSLSocketFactory.create());
         Volley.newRequestQueue(requireContext()).add(jsonObjectRequest);
     }
 }
