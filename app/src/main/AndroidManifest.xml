@@ -54,5 +54,8 @@
         <activity
             android:name=".views.SettingActivity"
             android:label="Settings" />
+        <activity
+            android:name=".views.SearchActivity"
+            android:label="Search for Hotels" />
     </application>
 </manifest>

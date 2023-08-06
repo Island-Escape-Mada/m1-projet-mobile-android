@@ -128,5 +128,14 @@
         android:src="@drawable/setting"
         app:elevation="6dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/search_icon"
+        app:elevation="6dp" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
