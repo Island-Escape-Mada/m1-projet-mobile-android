@@ -70,7 +70,7 @@ public class RegistrationFragment extends Fragment {
         String password = etPassword.getText().toString().trim();
 
         // Make an API call to register user
-        String url = API_URL + "auth/register";
+        String url = API_URL + "api/auth/register";
 
         JSONObject requestObject = new JSONObject();
         try {
@@ -90,7 +90,8 @@ public class RegistrationFragment extends Fragment {
                             // Handle the success message accordingly
                             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
 
-                            User user = new User(response.getString("user"));
+                            JSONObject userObject = response.getJSONObject("user");
+                            User user = new User(userObject);
                             SharedPreferenceHelper preferenceHelper = new SharedPreferenceHelper(requireContext());
                             preferenceHelper.setLoggedIn(true);
                             preferenceHelper.saveUser(user);
