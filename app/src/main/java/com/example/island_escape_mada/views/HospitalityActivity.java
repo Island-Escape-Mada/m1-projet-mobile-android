@@ -19,11 +19,24 @@ public class HospitalityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            ListFragment listFragment = new ListFragment("hospitality");
+            ListFragment listFragment = new ListFragment("list-info?info_type=hospitality");
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_container_view, listFragment);
             transaction.commit();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // get list fragment
+        ListFragment fragment = (ListFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
+        if (fragment != null && fragment.isVisible()) {
+            if (fragment.canWebViewGoBack()) {
+                fragment.goBackInWebView();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 }

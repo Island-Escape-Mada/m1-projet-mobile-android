@@ -1,4 +1,4 @@
-package com.example.island_escape_mada;
+package com.example.island_escape_mada.utility;
 
 import android.os.AsyncTask;
 import okhttp3.OkHttpClient;

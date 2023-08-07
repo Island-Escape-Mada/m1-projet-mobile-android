@@ -1,78 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Madagascar</title>
+    <title></title>
+    <!-- Link Bootstrap CSS from a CDN -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #007bff;
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #555;
-            font-size: 24px;
-        }
-        .info {
-            color: #222;
-            font-size: 20px;
-        }
-    </style>
+       body {
+         background-color: #f8f9fa;
+       }
+       .beach-card {
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         background-color: #fff;
+         padding: 20px;
+         margin-bottom: 20px;
+         transition: transform 0.3s ease-in-out;
+       }
+       .beach-card:hover {
+         transform: translateY(-5px);
+       }
+       .beach-image {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 10px;
+         margin-bottom: 10px;
+       }
+       .beach-name {
+         font-size: 24px;
+         font-weight: bold;
+         color: #007bff;
+         margin-bottom: 5px;
+       }
+       .beach-location {
+         font-size: 18px;
+         color: #555;
+         margin-bottom: 10px;
+       }
+       .beach-description {
+         font-size: 16px;
+         color: #333;
+       }
+       .welcome {
+
+         height:220px;
+
+         width:100%;
+
+         background-color:rgba(255, 255, 0, 0.3);
+
+     }
+
+     .content {
+
+         margin-top:230px;
+         height:800px;
+
+     }
+
+     .stick {
+
+         position:fixed;
+
+         top:0px;
+
+     }
+
+     </style>
 </head>
+
 <body>
-<div class="container">
-    <h1>Explore Madagascar</h1>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <h2>Area</h2>
-                <p class="info">587,041 square kilometers</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <h2>Population</h2>
-                <p class="info">27,691,018 (as of 2021)</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <h2>Coastline</h2>
-                <p class="info">4,828 kilometers</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <h2>Number of 5-star hotels</h2>
-                <p class="info">17 (as of 2021)</p>
-            </div>
+<div class="welcome stick container-fluid">
+    <h1 class="text-center">Best Madagascar Beaches</h1>
+    <span class="msg">
+                     <h2 class="text-center">Some random text<br/> or image or anything<br/> to welcome user.</h2>
+                 </span>
+</div>
+<div class="content container mt-230"<h1 class="text-center mb-4"></h1><div class="row">
+    <div class="col-md-6">
+        <div class="beach-card">
+            <img class="beach-image" src="Image1.png" alt="Antsanitia">
+            <div class="beach-name">Antsanitia</div>
+            <div class="beach-location">Antsiranana</div>
+            <div class="beach-description">Take away your stress at Antsanitia Beach</div>
         </div>
     </div>
-    <p>Madagascar, the fourth largest island in the world, offers diverse landscapes, stunning beaches, unique wildlife, and rich cultural heritage. Come and experience an unforgettable adventure in this exotic paradise!</p>
+
+    <div class="col-md-6">
+        <div class="beach-card">
+            <img class="beach-image" src="Image2.png" alt="Grand Pavoi">
+            <div class="beach-name">Grand Pavoi</div>
+            <div class="beach-location">Mahajanga</div>
+            <div class="beach-description">Enjoy your holiday in this sunny place</div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="beach-card">
+            <img class="beach-image" src="Image3.png" alt="Foulpoint">
+            <div class="beach-name">Foulpoint</div>
+            <div class="beach-location">Toamasina</div>
+            <div class="beach-description">Enjoy your holiday in this sunny place</div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="beach-card">
+            <img class="beach-image" src="Image4.png" alt="Ambilalemaitso">
+            <div class="beach-name">Ambilalemaitso</div>
+            <div class="beach-location">Ambila</div>
+            <div class="beach-description">Enjoy your holiday in this sunny place</div>
+        </div>
+    </div>
+
+</div>
+
 </div>
 </body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/topimage.js"></script>
+<script>
+       var shown = false;
+       $(window).scroll(function () {
+           if ($(window).scrollTop() == 0) {
+               $('.menu').hide();
+               $('.msg').fadeIn(200);
+               $('.welcome').animate({
+                   height: "220px"
+               }, 300);
+               shown = false;
+           } else if ($(window).scrollTop() > 0 && !shown) {
+               $('.menu').fadeIn(200);
+               $('.msg').hide();
+               $('.welcome').animate({
+                   height: "50px"
+               }, 300);
+               shown = true;
+           }
+       });
+       </script>
 </html>

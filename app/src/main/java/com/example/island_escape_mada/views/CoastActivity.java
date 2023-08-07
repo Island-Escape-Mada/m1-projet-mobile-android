@@ -11,6 +11,7 @@ import com.example.island_escape_mada.fragments.ListFragment;
 
 public class CoastActivity extends AppCompatActivity {
 
+    public String infoUrl;
     public CoastActivity() {
         super(R.layout.activity_coast);
     }
@@ -19,8 +20,11 @@ public class CoastActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.infoUrl = getIntent().getStringExtra("infoUrl");
+
         if (savedInstanceState == null) {
-            ListFragment listFragment = new ListFragment("beach");
+            // ListFragment listFragment = new ListFragment("list-info?info_type=beach");
+            ListFragment listFragment = new ListFragment(this.infoUrl);
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_container_view, listFragment);

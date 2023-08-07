@@ -1,12 +1,9 @@
 package com.example.island_escape_mada.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.ConsoleMessage;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -16,18 +13,18 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.island_escape_mada.FetchHtmlTask;
+import com.example.island_escape_mada.utility.FetchHtmlTask;
 import com.example.island_escape_mada.R;
 
 public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlListener{
 
     private ProgressBar progressBar;
     private WebView webView;
-    private String infoType;
+    private String infoUrl;
 
-    public ListFragment(String infoType) {
+    public ListFragment(String infoUrl) {
         super(R.layout.fragment_list);
-        this.infoType = infoType;
+        this.infoUrl = infoUrl;
     }
 
 
@@ -52,7 +49,7 @@ public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlLis
         // webView.setWebChromeClient(new WebChromeClient());
 
         /**
-         * load template in the same current web view
+         * allow the web view to load template in the same current web view
          */
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -65,7 +62,7 @@ public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlLis
 
         // progress bar
         progressBar.setVisibility(View.VISIBLE);
-        new FetchHtmlTask(this).execute(getString(R.string.api_url) + "list-info?info_type=" + infoType);
+        new FetchHtmlTask(this).execute(getString(R.string.api_url) + infoUrl);
 
         return rootView;
     }

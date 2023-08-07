@@ -11,6 +11,7 @@ import com.example.island_escape_mada.fragments.ListFragment;
 
 public class NaturalWonderActivity extends AppCompatActivity {
 
+    public  String infoUrl;
     public NaturalWonderActivity(){
         super(R.layout.activity_natural_wonder);
     }
@@ -19,12 +20,27 @@ public class NaturalWonderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.infoUrl = getIntent().getStringExtra("infoUrl");
+
         if (savedInstanceState == null) {
-            ListFragment listFragment = new ListFragment("natural");
+            ListFragment listFragment = new ListFragment(infoUrl);
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_container_view, listFragment);
             transaction.commit();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // get list fragment
+        ListFragment fragment = (ListFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container_view);
+        if (fragment != null && fragment.isVisible()) {
+            if (fragment.canWebViewGoBack()) {
+                fragment.goBackInWebView();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 }

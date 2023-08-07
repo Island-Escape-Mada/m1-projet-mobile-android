@@ -68,7 +68,7 @@ public class RegistrationFragment extends Fragment {
         String password = etPassword.getText().toString().trim();
 
         // Make an API call to register user
-        String url = API_URL + "/auth/register";
+        String url = API_URL + "auth/register";
 
         JSONObject requestObject = new JSONObject();
         try {

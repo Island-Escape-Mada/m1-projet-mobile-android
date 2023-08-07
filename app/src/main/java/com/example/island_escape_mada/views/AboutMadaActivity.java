@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.island_escape_mada.FetchHtmlTask;
+import com.example.island_escape_mada.utility.FetchHtmlTask;
 import com.example.island_escape_mada.R;
 
 public class AboutMadaActivity extends AppCompatActivity implements FetchHtmlTask.FetchHtmlListener {
