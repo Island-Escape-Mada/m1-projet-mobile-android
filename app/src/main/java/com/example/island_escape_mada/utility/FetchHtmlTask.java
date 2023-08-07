@@ -1,10 +1,14 @@
 package com.example.island_escape_mada.utility;
 
 import android.os.AsyncTask;
+
+import com.example.island_escape_mada.factory.UnsafeHttpClientGetUnsafe;
+
+import java.io.IOException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import java.io.IOException;
 
 public class FetchHtmlTask extends AsyncTask<String, Void, String> {
 
@@ -21,11 +25,11 @@ public class FetchHtmlTask extends AsyncTask<String, Void, String> {
         }
 
         String url = urls[0];
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = UnsafeHttpClientGetUnsafe.getUnsafeOkHttpClient();
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
         try {
             Response response = client.newCall(request).execute();
             return response.body().string();

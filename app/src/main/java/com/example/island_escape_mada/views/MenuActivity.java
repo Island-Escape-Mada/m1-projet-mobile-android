@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import com.example.island_escape_mada.R;
+import com.example.island_escape_mada.factory.UnsafeHttpClientGetUnsafe;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -133,7 +134,7 @@ public class MenuActivity extends AppCompatActivity {
      */
     private void getNotification(){
         String API_URL = getString(R.string.api_url) + "notification";
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = UnsafeHttpClientGetUnsafe.getUnsafeOkHttpClient();
         Request request = new Request.Builder()
                 .url(API_URL)
                 .build();

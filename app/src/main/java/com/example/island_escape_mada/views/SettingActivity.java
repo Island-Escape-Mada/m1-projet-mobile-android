@@ -1,6 +1,14 @@
 package com.example.island_escape_mada.views;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -11,15 +19,6 @@ import com.example.island_escape_mada.R;
 import com.example.island_escape_mada.factory.TrustAllSSLSocketFactory;
 import com.example.island_escape_mada.helpers.SharedPreferenceHelper;
 import com.example.island_escape_mada.models.User;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;

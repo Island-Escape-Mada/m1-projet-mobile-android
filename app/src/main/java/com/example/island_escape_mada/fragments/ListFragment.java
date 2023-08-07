@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-import com.example.island_escape_mada.utility.FetchHtmlTask;
 import com.example.island_escape_mada.R;
+import com.example.island_escape_mada.utility.CustomWebView;
+import com.example.island_escape_mada.utility.FetchHtmlTask;
 
 public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlListener{
 
@@ -26,7 +26,6 @@ public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlLis
         super(R.layout.fragment_list);
         this.infoUrl = infoUrl;
     }
-
 
     @Nullable
     @Override
@@ -44,21 +43,11 @@ public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlLis
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
-        // webSettings.setAllowFileAccess(true);
-
-        // webView.setWebChromeClient(new WebChromeClient());
 
         /**
          * allow the web view to load template in the same current web view
          */
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                // Prevent the default behavior of opening URLs externally
-                return false;
-            }
-        });
-
+        webView.setWebViewClient(new CustomWebView());
 
         // progress bar
         progressBar.setVisibility(View.VISIBLE);
@@ -71,13 +60,8 @@ public class ListFragment extends Fragment implements FetchHtmlTask.FetchHtmlLis
     public void onHtmlFetched(String htmlContent) {
         if (htmlContent != null){
             String baseUrl = "file:///android_asset/";
-            System.out.println(htmlContent);
-            // webView.loadUrl("file:///android_asset/about_mada.html");
             webView.loadDataWithBaseURL(baseUrl, htmlContent, "text/html", "UTF-8", null);
-            // Inject the local JavaScript file into the WebView content
-            webView.loadUrl("javascript:var script = document.createElement('script'); " +
-                    "script.src = 'file:///android_asset/js/topimage.js'; " +
-                    "document.head.appendChild(script);");
+
             // hide the progress bar
             progressBar.setVisibility(View.GONE);
         }

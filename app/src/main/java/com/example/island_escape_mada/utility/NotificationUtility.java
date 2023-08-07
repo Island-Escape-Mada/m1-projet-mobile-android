@@ -31,7 +31,7 @@ public class NotificationUtility extends AppCompatActivity {
         // Display the notification
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (notificationManager != null) {
-            notificationManager.notify(1, notification); // Use a unique notification ID to identify the notification
+            notificationManager.notify(1, notification);
         }
     }
 }
