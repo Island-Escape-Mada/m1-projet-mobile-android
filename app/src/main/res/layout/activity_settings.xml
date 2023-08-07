@@ -1,147 +1,184 @@
 <!-- activity_settings.xml -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-
-    <!-- User Profile Section -->
-    <LinearLayout
-        android:id="@+id/user_profile_section"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="16dp">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textUserProfileTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Profile"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Default Avatar Circle -->
-        <ImageView
-            android:id="@+id/image_avatar"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/default_avatar" />
-
-        <!-- Editable Username -->
-        <EditText
-            android:id="@+id/edit_username"
+        <!-- User Profile Section -->
+        <LinearLayout
+            android:id="@+id/user_profile_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            android:text="John Doe"
-            android:layout_marginTop="16dp" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
 
-    <!-- Preferences Section -->
-    <LinearLayout
-        android:id="@+id/preferences_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/user_profile_section"
-        android:layout_marginBottom="16dp">
+            <TextView
+                android:id="@+id/textUserProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Profile"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:id="@+id/textPreferencesTitle"
-            android:layout_width="wrap_content"
+            <!-- Default Avatar Circle -->
+            <ImageView
+                android:id="@+id/image_avatar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/default_avatar" />
+
+            <!-- Editable Username -->
+            <EditText
+                android:id="@+id/edit_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:text="John Doe"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+
+        <!-- Preferences Section -->
+        <LinearLayout
+            android:id="@+id/preferences_section"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Preferences"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_below="@id/textUserProfileTitle"
+            android:orientation="vertical"
+            android:layout_below="@id/user_profile_section"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/textPreferencesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preferences"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_below="@id/textUserProfileTitle"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Fake Link to Privacy Settings -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:drawableStart="@drawable/privacy"
+                android:drawablePadding="8dp"
+                android:focusable="true"
+                android:onClick="onPrivacySettingsClick"
+                android:text="Privacy Settings"
+                android:textColor="@android:color/holo_blue_dark"
+                android:gravity="center_vertical"/>
+
+            <!-- Fake Link to Favorites -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorites"
+                android:textColor="@android:color/holo_blue_dark"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/favorite"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onFavoritesClick"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <!-- Permissions Section -->
+        <LinearLayout
+            android:id="@+id/permissions_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/preferences_section"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/textPermissionsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Permissions"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_below="@id/textPreferencesTitle"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Toggle for Camera Permission -->
+            <Switch
+                android:id="@+id/switch_camera_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Camera"
+                android:checked="true" />
+
+            <!-- Toggle for Location Permission -->
+            <Switch
+                android:id="@+id/switch_location_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:checked="true"
+                android:layout_marginTop="8dp" />
+
+            <!-- Toggle for Internet Permission -->
+            <Switch
+                android:id="@+id/switch_internet_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Internet"
+                android:checked="true"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/permissions_section"
+            android:orientation="vertical"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true">
 
-        <!-- Fake Link to Privacy Settings -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:clickable="true"
-            android:drawableStart="@drawable/privacy"
-            android:drawablePadding="8dp"
-            android:focusable="true"
-            android:onClick="onPrivacySettingsClick"
-            android:text="Privacy Settings"
-            android:textColor="@android:color/holo_blue_dark"
-            android:gravity="center_vertical"/>
+            <!-- Update Info Button -->
+            <Button
+                android:id="@+id/btn_update_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Info"
+                android:background="@drawable/button_transparent_background"
+                android:textColor="@android:color/holo_purple"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:radius="8dp"
+                android:layout_marginTop="8dp" />
 
-        <!-- Fake Link to Favorites -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Favorites"
-            android:textColor="@android:color/holo_blue_dark"
-            android:drawablePadding="8dp"
-            android:drawableStart="@drawable/favorite"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="onFavoritesClick"
-            android:layout_marginTop="8dp"
-            android:gravity="center_vertical"/>
-    </LinearLayout>
-
-    <!-- Permissions Section -->
-    <LinearLayout
-        android:id="@+id/permissions_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@id/preferences_section"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/textPermissionsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Permissions"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_below="@id/textPreferencesTitle"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Toggle for Camera Permission -->
-        <Switch
-            android:id="@+id/switch_camera_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Camera"
-            android:checked="true" />
-
-        <!-- Toggle for Location Permission -->
-        <Switch
-            android:id="@+id/switch_location_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Location"
-            android:checked="true"
-            android:layout_marginTop="8dp" />
-
-        <!-- Toggle for Internet Permission -->
-        <Switch
-            android:id="@+id/switch_internet_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Internet"
-            android:checked="true"
-            android:layout_marginTop="8dp" />
-    </LinearLayout>
-
-    <!-- Logout Button -->
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_below="@id/permissions_section"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
-</RelativeLayout>
+            <!-- Logout Button -->
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:radius="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

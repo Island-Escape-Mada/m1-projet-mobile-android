@@ -20,10 +20,14 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.example.island_escape_mada.R;
-import com.example.island_escape_mada.utility.NotificationUtility;
+import com.example.island_escape_mada.factory.TrustAllSSLSocketFactory;
+import com.example.island_escape_mada.helpers.SharedPreferenceHelper;
+import com.example.island_escape_mada.models.User;
 import com.example.island_escape_mada.views.MenuActivity;
 
 import java.io.UnsupportedEncodingException;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class LoginFragment extends Fragment {
 
@@ -66,7 +70,7 @@ public class LoginFragment extends Fragment {
         String password = etPassword.getText().toString().trim();
 
         // Make an API call to login user
-        String url = API_URL + "auth/login";
+        String url = API_URL + "api/auth/login";
 
         JSONObject requestObject = new JSONObject();
         try {
@@ -85,6 +89,12 @@ public class LoginFragment extends Fragment {
                             String message = response.getString("message");
                             // Handle the success message accordingly
                             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show();
+
+                            JSONObject userObject = response.getJSONObject("user");
+                            User user = new User(userObject);
+                            SharedPreferenceHelper preferenceHelper = new SharedPreferenceHelper(requireContext());
+                            preferenceHelper.setLoggedIn(true);
+                            preferenceHelper.saveUser(user);
 
                             Intent intent = new Intent(requireContext(), MenuActivity.class);
                             startActivity(intent);
@@ -115,7 +125,7 @@ public class LoginFragment extends Fragment {
                     }
                 });
 
-        // Add the request to the RequestQueue (Volley's network queue)
+        HttpsURLConnection.setDefaultSSLSocketFactory(TrustAllSSLSocketFactory.create());
         Volley.newRequestQueue(requireContext()).add(jsonObjectRequest);
     }
 }

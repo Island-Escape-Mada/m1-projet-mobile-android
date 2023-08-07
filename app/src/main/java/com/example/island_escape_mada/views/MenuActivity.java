@@ -49,6 +49,7 @@ public class MenuActivity extends AppCompatActivity {
         Button hospitality = findViewById(R.id.btn_hospitality);
         Button news = findViewById(R.id.btn_news);
         FloatingActionButton fabSettings = findViewById(R.id.fab_settings);
+        FloatingActionButton fabSearch = findViewById(R.id.fab_search);
 
         about.setOnClickListener(onMenuButtonClick);
         natural.setOnClickListener(onMenuButtonClick);
@@ -57,6 +58,7 @@ public class MenuActivity extends AppCompatActivity {
         hospitality.setOnClickListener(onMenuButtonClick);
         news.setOnClickListener(onMenuButtonClick);
         fabSettings.setOnClickListener(onMenuButtonClick);
+        fabSearch.setOnClickListener(onMenuButtonClick);
     }
 
     /**
@@ -116,6 +118,10 @@ public class MenuActivity extends AppCompatActivity {
                     break;
                 case R.id.fab_settings:
                     intent = new Intent(MenuActivity.this, SettingActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.fab_search:
+                    intent = new Intent(MenuActivity.this, SearchActivity.class);
                     startActivity(intent);
                     break;
             }

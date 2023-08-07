@@ -40,7 +40,6 @@
             android:exported="true"
             android:label="@string/title_activity_menu"
             android:theme="@style/Theme.IslandEscapeMada">
-
         </activity>
         <activity
             android:name=".views.AuthActivity"
@@ -58,6 +57,8 @@
         <activity
             android:name=".views.SettingActivity"
             android:label="Settings" />
+        <activity
+            android:name=".views.SearchActivity"
+            android:label="Search for Hotels" />
     </application>
-
 </manifest>
