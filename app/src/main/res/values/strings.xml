@@ -22,4 +22,5 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="api_url">https://android-m1-famenontsoa-nantenaina.onrender.com/</string>
+    <string name="api_token">eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGFybmlzaCIsInVzZXJuYW1lIjoiY2hhcm5pc2giLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTE0MDc2MDMsImV4cCI6MTY5Mzk5OTYwM30.GRlV3Xot8mN7nRmloE8t_Y-LkzKcrNiOarzRmcaUStI</string>
 </resources>
